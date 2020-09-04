@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {style} from '@angular/animations';
 
 @Component({
   selector: 'app-server',
@@ -10,20 +9,22 @@ export class ServerComponent implements OnInit{
   allowNewServer = false;
   serverCreationStatus = 'no server was created';
   serverName = '';
+  serverCreated = false ;
   constructor() {
     setTimeout(() => {
       this.allowNewServer = true;
-    }, 10000);
+    }, 2000);
   }
   // tslint:disable-next-line:typedef
   ngOnInit() {
   }
   // tslint:disable-next-line:typedef
   onCreatServer(){
-    this.serverCreationStatus = 'server was created';
+    this.serverCreated = true;
+    this.serverCreationStatus = 'server was created !! server name ' + this.serverName ;
   }
   // tslint:disable-next-line:typedef
   onUpdateServerName(event: Event){
-    this.serverName = (<HTMLInputElement> event.target).value;
+    this.serverName = (event.target as HTMLInputElement).value;
   }
 }

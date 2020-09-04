@@ -1,21 +1,20 @@
+<app-server></app-server>
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
       <ol>
-        <li>creat two new component (manually or with CLI): WarningAlert and successAlert</li>
-        <li>Output them beneath each other in the AppComponent</li>
-        <li>Output a Warning or succses message in the Component</li>
-        <li>style the Component appropriately (maybe some red/green text?)</li>
+        <li>add a input field wich updates a property ('username') via two-way-binding !</li>
+        <li>output th username property via string interpolation (in a paragraph below the input</li>
+        <li>add a button which may only be clicked if th username  is Not an empty string </li>
+        <li>upon clicking th button , the username should be reset to an empty string</li>
       </ol>
-      <p>use external or internal templates and styles!</p>
-      <p>feel free to create more components , nest  th into each other or play around with
-        different types of selectors!</p>
       <hr>
-      <app-warning-alert></app-warning-alert>
-      <app-succses-alert></app-succses-alert>
-      <app-server></app-server>
-
-
+      <label>Username</label>
+      <input type="text" class="form-control" [(ngModel)]="userHero">
+      <button class="btn btn-danger"
+              [disabled]="userHero === ''"
+              (click)="userHero = ''"
+              >reset User</button>
     </div>
   </div>
 </div>
